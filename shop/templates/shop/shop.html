@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Shop</h1>
+
+{% if products %}
+
+<div class="row row-cols-1 row-cols-md-3">
+{% for product in products %}
+<div class="col mb-4">
+    <div class="card h-100">
+        <a href="{% url 'product' product.pk %}">
+            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.title }}">
+        </a>
+        <div class="card-body">
+            <div class="card-title">
+                <b>{{ product.title }}</b>
+            </div>
+            <div class="card-text">
+                <div class="row">
+                    <div class="col-5">
+                        <span class="h3 mb-1">{{ product.price }}₽</span>
+                    </div>
+                    <div class="col-7">
+                        <a href="{% url 'add-product-to-cart' product.pk %}"><button type="button" class="btn btn-lg btn-warning float-right">В корзину</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% endif %}
+{% endblock %}
