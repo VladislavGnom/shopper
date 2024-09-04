@@ -22,7 +22,7 @@
                     <span class="h3 mb-1">{{ product.price }}₽</span>
                 </div>
                 <div class="col-7">
-                    <a href="#"><button type="button" class="btn btn-lg btn-warning float-right">В корзину</button></a>
+                    <a href="{% url 'add-product-to-cart' product.pk %}"><button type="button" class="btn btn-lg btn-warning float-right">В корзину</button></a>
                 </div>
             </div>
         </div>

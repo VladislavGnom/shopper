@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<h1 class="text-center mt-2">Корзина</h1>
+<div class="text-center h1">Корзина</div>
 
 {% if cart %}
 <div class="row row-cols-1 row-cols-md-3">
@@ -26,6 +26,7 @@
                             <span class="h3 mb-1">{{ i.product.price }}₽</span>
                         </div>
                         <div class="col-7">
+                            <div class="amount float-right bg-danger rounded-circle pl-2 pr-2">{{ i.amount }}</div>
                             <a href="#"><button type="button" class="btn btn-lg btn-warning float-right">Купить</button></a>
                         </div>
                     </div>
@@ -35,5 +36,7 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+<div class="h3 text-center mt-3">На данный момент ваша корзина пустая, давайте её <a href="{% url 'shop' %}">заполним</a></div>
 {% endif %}
 {% endblock %}
