@@ -4,10 +4,22 @@ from .models import Product, Category
 
 def shop(request, category_id=None):
     all_categories = Category.objects.all()
-    if category_id:
-        all_products = Product.objects.order_by('?').filter(category__pk=category_id, remainder__gte=1)
+    data_sort = request.GET.get('sort')
+
+    if category_id:    
+        if data_sort == "price-up":
+            all_products = Product.objects.filter(category__pk=category_id, remainder__gte=1).order_by('price')
+        elif data_sort == "price-down":
+            all_products = Product.objects.filter(category__pk=category_id, remainder__gte=1).order_by('-price')
+        else:
+            all_products = Product.objects.filter(category__pk=category_id, remainder__gte=1)
     else:
-        all_products = Product.objects.order_by('?').filter(remainder__gte=1)
+        if data_sort == "price-up":
+            all_products = Product.objects.filter(remainder__gte=1).order_by('price')
+        elif data_sort == "price-down":
+            all_products = Product.objects.filter(remainder__gte=1).order_by('-price')
+        else:
+            all_products = Product.objects.filter(remainder__gte=1)
 
     context = {
         'title': 'Магазин',

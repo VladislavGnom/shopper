@@ -1,6 +1,6 @@
 <div style="min-height: 120px;">
     <div class="collapse width" id="collapseCatalog">
-      <div class="card card-body" style="width: 320px;">
+      <div class="card card-body" style="width: 320px;">  
           <ul class="list-group">
           {% for category in categories %}
               <li class="list-group-item"><a href="{% url 'shop' category.pk %}" class=""><button class="btn btn-white">{{ category.category }}</button></a></li>

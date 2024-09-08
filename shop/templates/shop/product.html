@@ -16,7 +16,8 @@
             <b class="h3">{{ product.title }}</b>
         </div>
         <div class="card-text">
-        <div class="h5">{{ product.description }}</div>
+            <div class="h5"><span class="text-muted">Описание:</span> {{ product.description }}</div>
+            <div class="h5"><span class="text-muted">Категория:</span> {{ product.category.category }}</div>
             <div class="row">
                 <div class="col-5">
                     <span class="h3 mb-1">{{ product.price }}₽</span>
@@ -29,4 +30,5 @@
     </div>
 </div>
 </div>
+<div style="height: 100px;"></div>
 {% endblock %}

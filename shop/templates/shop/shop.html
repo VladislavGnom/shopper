@@ -7,6 +7,19 @@
 
 {% block content %}
 
+<div class="dropdown float-right">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+      Сортировка
+    </button>
+    <div class="dropdown-menu">
+      <form action="" method="get">
+        <input name="sort" id="sort" hidden type="text">
+      <button id="sort-button1" type="submit" class="dropdown-item sort-button">По убыванию цены</button>
+      <button id="sort-button2" type="submit" class="dropdown-item">По возрастанию цены</button>
+      </form> 
+    </div>
+  </div>
+
 <h1>Shop</h1>
 
 {% if products %}
@@ -37,6 +50,10 @@
 </div>
 {% endfor %}
 </div>
+
+{% else %}
+
+<div class="h2 text-center mt-3">Товары не найдены</div>
 
 {% endif %}
 {% endblock %}
