@@ -1,0 +1,20 @@
+{% extends "auth_base.html" %}
+
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="text-center">Войти или зарегистрироваться</h1>
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-success col-12">Получить код</button>
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+
+</div>
+
+{% endblock %}
